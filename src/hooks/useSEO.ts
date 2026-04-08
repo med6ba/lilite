@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { DEFAULT_OG_IMAGE_PATH, getSiteUrl, SITE_NAME, toAbsoluteUrl } from '@/lib/site'
+import { toAbsoluteUrl } from '@/lib/site'
 import { StructuredData } from '@/lib/structuredData'
 
 interface SEOOptions {
@@ -13,6 +13,7 @@ interface SEOOptions {
   locale?: string
   siteName?: string
   twitterSite?: string
+  structuredData?: StructuredData[]
 }
 
 const DEFAULT_SITE_URL = 'https://www.lilite.site'
@@ -123,6 +124,7 @@ export function useSEO({
   locale = DEFAULT_LOCALE,
   siteName = DEFAULT_SITE_NAME,
   twitterSite,
+  structuredData = [],
 }: SEOOptions) {
   useEffect(() => {
     if (typeof window === 'undefined' || typeof document === 'undefined') {
@@ -160,5 +162,6 @@ export function useSEO({
       upsertMetaByName('twitter:site', twitterSite.trim())
     }
     upsertCanonical(canonicalUrl)
-  }, [description, imagePath, keywords, locale, noindex, pathname, siteName, title, twitterSite, type])
+    syncStructuredData(structuredData)
+  }, [description, imagePath, keywords, locale, noindex, pathname, siteName, structuredData, title, twitterSite, type])
 }

@@ -39,6 +39,7 @@ const distroManagerMap: Record<DistroFamily, string> = {
   'manjaro-based': 'pacman',
   'mint-based': 'apt',
   'nobara-based': 'dnf',
+  'cachyos-based': 'pacman',
   'opensuse-based': 'zypper',
   'parrot-based': 'apt',
   'popos-based': 'apt',

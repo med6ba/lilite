@@ -29,6 +29,44 @@ export function DistroChooserPage() {
   const garudaLogo = 'https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/garuda-linux.svg'
   const nobaraLogo = 'https://cdn.simpleicons.org/fedora'
   const cachyosLogo = 'https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/cachyos-linux.svg'
+  const siteUrl = getSiteUrl()
+  const pageUrl = `${siteUrl}/get-started`
+  const structuredData = useMemo(
+    () => [
+      createCollectionPageSchema({
+        description: messages.chooserPage.description,
+        name: messages.chooserPage.title,
+        url: pageUrl,
+      }),
+      createBreadcrumbSchema([
+        { name: 'Lilite', url: `${siteUrl}/` },
+        { name: messages.chooserPage.title, url: pageUrl },
+      ]),
+      createItemListSchema({
+        name: messages.chooserPage.title,
+        url: pageUrl,
+        items: [
+          { name: messages.footer.arch, url: `${siteUrl}/distro/arch-based` },
+          { name: messages.footer.fedora, url: `${siteUrl}/distro/fedora-based` },
+          { name: messages.footer.debian, url: `${siteUrl}/distro/debian-based` },
+          { name: messages.footer.opensuse, url: `${siteUrl}/distro/opensuse-based` },
+          { name: messages.footer.alpine, url: `${siteUrl}/distro/alpine-based` },
+          { name: messages.footer.ubuntu, url: `${siteUrl}/distro/ubuntu-based` },
+          { name: messages.footer.kali, url: `${siteUrl}/distro/kali-based` },
+          { name: messages.footer.manjaro, url: `${siteUrl}/distro/manjaro-based` },
+          { name: messages.footer.mint, url: `${siteUrl}/distro/mint-based` },
+          { name: messages.footer.popos, url: `${siteUrl}/distro/popos-based` },
+          { name: messages.footer.zorin, url: `${siteUrl}/distro/zorin-based` },
+          { name: messages.footer.parrot, url: `${siteUrl}/distro/parrot-based` },
+          { name: messages.footer.endeavouros, url: `${siteUrl}/distro/endeavouros-based` },
+          { name: messages.footer.garuda, url: `${siteUrl}/distro/garuda-based` },
+          { name: messages.footer.nobara, url: `${siteUrl}/distro/nobara-based` },
+          { name: messages.footer.cachyos, url: `${siteUrl}/distro/cachyos-based` },
+        ],
+      }),
+    ],
+    [messages.chooserPage.description, messages.chooserPage.title, messages.footer, pageUrl, siteUrl],
+  )
 
   useSEO({
     title: messages.chooserPage.seoTitle,
@@ -53,9 +91,11 @@ export function DistroChooserPage() {
         as="h1"
       />
       <div className="mb-4 flex flex-col items-start gap-2 rounded-xl border bg-card/70 p-3 text-sm text-muted-foreground sm:flex-row sm:flex-wrap sm:items-center">
-        <span className="rounded-full border bg-background px-2 py-1 text-xs font-medium text-foreground">16 distro families</span>
-        <span className="rounded-full border bg-background px-2 py-1 text-xs font-medium text-foreground">apt / pacman / yay / dnf / zypper / apk</span>
-        <span>Pick once, generate clean commands instantly.</span>
+        <span className="rounded-full border bg-background px-2 py-1 text-xs font-medium text-foreground">{messages.chooserPage.totalFamiliesBadge}</span>
+        <span className="rounded-full border bg-background px-2 py-1 text-xs font-medium text-foreground">
+          {messages.chooserPage.packageManagersBadge}
+        </span>
+        <span>{messages.chooserPage.summaryNote}</span>
       </div>
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         <DistroCard

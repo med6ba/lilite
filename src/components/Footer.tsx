@@ -22,6 +22,7 @@ export function Footer() {
     { to: '/distro/endeavouros-based', label: messages.footer.endeavouros },
     { to: '/distro/garuda-based', label: messages.footer.garuda },
     { to: '/distro/nobara-based', label: messages.footer.nobara },
+    { to: '/distro/cachyos-based', label: messages.footer.cachyos },
   ]
 
   return (
@@ -66,84 +67,9 @@ export function Footer() {
                     {linkItem.label}
                   </Link>
                 </li>
-                <li>
-                  <Link to="/distro/fedora-based" className="text-muted-foreground transition-colors hover:text-primary">
-                    {messages.footer.fedora}
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/distro/debian-based" className="text-muted-foreground transition-colors hover:text-primary">
-                    {messages.footer.debian}
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/distro/opensuse-based" className="text-muted-foreground transition-colors hover:text-primary">
-                    {messages.footer.opensuse}
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/distro/alpine-based" className="text-muted-foreground transition-colors hover:text-primary">
-                    {messages.footer.alpine}
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/distro/ubuntu-based" className="text-muted-foreground transition-colors hover:text-primary">
-                    {messages.footer.ubuntu}
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/distro/kali-based" className="text-muted-foreground transition-colors hover:text-primary">
-                    {messages.footer.kali}
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/distro/manjaro-based" className="text-muted-foreground transition-colors hover:text-primary">
-                    {messages.footer.manjaro}
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/distro/mint-based" className="text-muted-foreground transition-colors hover:text-primary">
-                    {messages.footer.mint}
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/distro/popos-based" className="text-muted-foreground transition-colors hover:text-primary">
-                    {messages.footer.popos}
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/distro/zorin-based" className="text-muted-foreground transition-colors hover:text-primary">
-                    {messages.footer.zorin}
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/distro/parrot-based" className="text-muted-foreground transition-colors hover:text-primary">
-                    {messages.footer.parrot}
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/distro/endeavouros-based" className="text-muted-foreground transition-colors hover:text-primary">
-                    {messages.footer.endeavouros}
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/distro/garuda-based" className="text-muted-foreground transition-colors hover:text-primary">
-                    {messages.footer.garuda}
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/distro/nobara-based" className="text-muted-foreground transition-colors hover:text-primary">
-                    {messages.footer.nobara}
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/distro/cachyos-based" className="text-muted-foreground transition-colors hover:text-primary">
-                    {messages.footer.cachyos}
-                  </Link>
-                </li>
-              </ul>
-            </nav>
-          </div>
+              ))}
+            </ul>
+          </section>
         </div>
 
         <div className="mt-6 flex flex-col gap-2 border-t pt-4 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
